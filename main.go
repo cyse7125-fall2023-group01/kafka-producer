@@ -137,6 +137,10 @@ func main() {
 	// Create Kafka producer configuration
 	config := &kafka.ConfigMap{
 		"bootstrap.servers": kafkaBootstrapServers,
+		"security.protocol": "SASL_PLAINTEXT",
+		"sasl.mechanism":    "PLAIN",
+		"sasl.username":     "user1",
+		"sasl.password":     "user1",
 	}
 
 	// Create Kafka producer
@@ -155,6 +159,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error producing message to Kafka: %v", err)
 	}
+	producer.Flush(5 * 1000) // 5 seconds timeout
 
 	log.Println("Message sent to Kafka successfully")
 }
