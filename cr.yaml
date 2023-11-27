@@ -1,0 +1,15 @@
+apiVersion: monitoring.httpcheck.io/v1alpha1
+kind: CronJob
+metadata:
+  name: google-cronjob
+spec:
+  ID: "123"
+  check_interval_in_seconds: 1
+  is_paused: false
+  name: "google CronJob"
+  num_retries: 3
+  response_status_code: 400
+  response_time_sla: 500
+  uptime_sla: 99
+  uri: "https://google.com"
+  use_ssl: true
