@@ -99,8 +99,9 @@ func main() {
 			log.Printf("Sleeping for %s before next retry\n", sleepDuration)
 			time.Sleep(sleepDuration)
 		}
+		responseStatusCode = "404"
 	}
-	responseStatusCode = "404"
+	
 	uptimeSLA := "100"
 
 	// Create message payload without Kafka
