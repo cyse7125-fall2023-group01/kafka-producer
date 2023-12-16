@@ -62,9 +62,13 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error converting USE_SSL to boolean: %v", err)
 	}
+	Cis, err := os.LookupEnv("CHECK_INTERVAL_IN_SECONDS")
+	if err != nil {
+		log.Fatalf("Error converting CHECK_INTERVAL_IN_SECONDS", err)
+	}
 
 	responseStatusCode := "0"
-	checkIntervalInSeconds := "86400"
+	checkIntervalInSeconds := "Cis"
 	var checkstatus bool = false
 
 	// Retry HTTP GET attempts
