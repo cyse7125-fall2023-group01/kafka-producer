@@ -63,7 +63,7 @@ func main() {
 		log.Fatalf("Error converting USE_SSL to boolean: %v", err)
 	}
 	Cis, ok := os.LookupEnv("CHECK_INTERVAL_IN_SECONDS")
-	if ok != nil {
+	if !ok {
 		log.Fatalf("Error converting CHECK_INTERVAL_IN_SECONDS")
 	}
 
